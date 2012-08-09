@@ -1,0 +1,39 @@
+URxvt*cursorBlink : true
+
+! to match gnome-terminal "Linux console" scheme
+! foreground/background
+URxvt*foreground : #DDDDDD
+URxvt*background : #1C1C1C
+!black
+URxvt.color0     : #2B3336
+URxvt.color8     : #525751
+!red
+URxvt.color1     : #D10000
+URxvt.color9     : #E62C2C
+!green
+URxvt.color2     : #4E9911
+URxvt.color10    : #8BDE33
+!yellow
+URxvt.color3     : #C29F02
+URxvt.color11    : #F7E94F
+!blue
+URxvt.color4     : #3367A6
+URxvt.color12    : #74A2CC
+!magenta
+URxvt.color5     : #725478
+URxvt.color13    : #A381A6
+!cyan
+URxvt.color6     : #0699A1
+URxvt.color14    : #35E3E6
+!white
+URxvt.color7     : #D3D9D0
+URxvt.color15    : #ECEDEB
+
+URxvt*font        : xft:Termsyn:pixelsize=19
+URxvt*boldFont    : xft:Termsyn:bold:pixelsize=19
+URxvt*saveLines   : 12000
+URxvt*scrollBar   : false
+URxvt*scrollstyle : rxvt
+URxvt*cursorColor : grey
+
+
