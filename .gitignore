@@ -13,6 +13,7 @@
 !.vim/syntax/*
 !.Xdefaults
 !.xinitrc
+!.xmodmaprc
 !.zprofile
 !.zshrc
 !.xmonad
