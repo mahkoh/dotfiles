@@ -1,5 +1,5 @@
-" Modifikationen sind mit TODO gekenzeichnet.
-"
+" NOTE: I modified this file to better differentiate between tags.
+" These changes are marked by CHANGEJO
 "
 "
 " Vim syntax file
@@ -131,9 +131,8 @@ if !exists("tex_no_math")
  " following used in the \part \chapter \section \subsection \subsubsection
  " \paragraph \subparagraph \author \title highlighting
  syn cluster texDocGroup		contains=texPartZone,@texPartGroup
- "TODO: @texChapterGroup
+ " CHANGEJO: Theorems and so on don't have to be in Sections
  syn cluster texPartGroup		contains=texChapterZone,texSectionZone,texParaZone,@texChapterGroup
- "TODO: @texSectionGroup
  syn cluster texChapterGroup		contains=texSectionZone,texParaZone,@texSectionGroup
  syn cluster texSectionGroup		contains=texSubSectionZone,texParaZone
  syn cluster texSubSectionGroup		contains=texSubSubSectionZone,texParaZone
@@ -326,7 +325,7 @@ if !exists("tex_no_math")
     let foldcmd= ""
    endif
    exe "syn cluster texMathZones add=".grpname
-   " TODO: texMathDelimX
+   " CHANGEJO: Add 'matchgroup' 'texMathDelimX' to color it separately
    exe 'syn region '.grpname.' matchgroup=texMathDelimX start='."'".'\\begin\s*{\s*'.a:mathzone.'\s*}'."'".' end='."'".'\\end\s*{\s*'.a:mathzone.'\s*}'."'".' keepend contains=@texMathZoneGroup'.foldcmd
    exe 'syn sync match '.syncname.' grouphere '.grpname.' "\\begin\s*{\s*'.a:mathzone.'\*\s*}"'
    exe 'syn sync match '.syncname.' grouphere '.grpname.' "\\begin\s*{\s*'.a:mathzone.'\*\s*}"'
@@ -335,7 +334,7 @@ if !exists("tex_no_math")
     let grpname  = "texMathZone".a:sfx.'S'
     let syncname = "texSyncMathZone".a:sfx.'S'
     exe "syn cluster texMathZones add=".grpname
-    " TODO: texMathDelimX
+    " CHANGEJO: Add 'matchgroup' 'texMathDelimX' to color it separately
     exe 'syn region '.grpname.' matchgroup=texMathDelimX start='."'".'\\begin\s*{\s*'.a:mathzone.'\*\s*}'."'".' end='."'".'\\end\s*{\s*'.a:mathzone.'\*\s*}'."'".' keepend contains=@texMathZoneGroup'.foldcmd
     exe 'syn sync match '.syncname.' grouphere '.grpname.' "\\begin\s*{\s*'.a:mathzone.'\*\s*}"'
     exe 'syn sync match '.syncname.' grouphere '.grpname.' "\\begin\s*{\s*'.a:mathzone.'\*\s*}"'
@@ -363,7 +362,7 @@ if !exists("tex_no_math")
 
  " Inline Math Zones: {{{2
  if has("conceal") && &enc == 'utf-8' && s:tex_conceal =~ 'd'
-     "TODO: texMathDelimX
+     " CHANGEJO: Change 'matchgroup' to 'texMathDelimX' to color it separately
   syn region texMathZoneV	matchgroup=texMathDelimX start="\\("			matchgroup=texMathDelimX end="\\)\|%stopzone\>"	keepend concealends contains=@texMathZoneGroup
   syn region texMathZoneW	matchgroup=texMathDelimX start="\\\["			matchgroup=texMathDelimX end="\\]\|%stopzone\>"	keepend concealends contains=@texMathZoneGroup
   syn region texMathZoneX	matchgroup=Delimiter start="\$" skip="\\\\\|\\\$"	matchgroup=Delimiter end="\$" end="%stopzone\>"		concealends contains=@texMathZoneGroup
@@ -1149,7 +1148,11 @@ endif
 unlet s:extfname
 let   b:current_syntax = "tex"
 " vim: ts=8 fdm=marker
-" TODO
+
+
+
+
+" CHANGEJO: hilight theorems differently
 syn cluster texFoldGroup add=texThms
 for thm in ["thm", "kor", "defi", "lem", "proof"]
     exe 'syn match texThms "\\\(begin\|end\)\s*{\s*'.thm.'\s*}"'

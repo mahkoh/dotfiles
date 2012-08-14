@@ -49,20 +49,7 @@ hi TabLineFill  ctermfg=239         ctermbg=239
 hi TabLineSel   ctermfg=104         ctermbg=236         cterm=Bold
 "vim: sw=4
 
-" gnome-terminal
-" hi  texMathDelimX     ctermfg=10   cterm=None
-" hi  texThms           ctermfg=4    cterm=None
-" hi  Delimiter         ctermfg=13   cterm=None
-" hi  texRefZone        ctermfg=8    cterm=None
-" hi  texRefLabel       ctermfg=7    cterm=None
-" hi  texMath           ctermfg=12   cterm=None
-" hi  texStatement      ctermfg=11   cterm=None
-" hi  texTypeStyle      ctermfg=3    cterm=None
-" hi  texSectionMarker  ctermfg=8    cterm=None
-" hi  texSectionName    ctermfg=243  cterm=None
-" hi  texSection        ctermfg=14   cterm=None
-
-" urxvt
+" NOTE: This requires gnome-terminal's color scheme
 hi  texMathDelimX     ctermfg=10   cterm=None
 hi  texThms           ctermfg=4    cterm=None
 hi  Delimiter         ctermfg=13   cterm=None

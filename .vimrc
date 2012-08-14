@@ -1,110 +1,115 @@
-" Enable viM
+" enable viM
 set nocompatible
 
-" Normal X11 clipboard
+" normal X11 clipboard
 set clipboard=unnamedplus
 
-" Undo after closing the file
+" undo after closing the file
 set undofile
 
 set undodir=~/.vim/undodir
 
-"maximum number of changes that can be undone
+" maximum number of changes that can be undone
 set undolevels=1000 
 
-"maximum number lines to save for undo on a buffer reload
+" maximum number lines to save for undo on a buffer reload
 set undoreload=10000 
 
-" Screen lines above and below the cursor
+" screen lines above and below the cursor
 set scrolloff=4 
 
-" Visual Menu
+" visual menu
 set wildmenu 
 
-" Show file info
+" show file info
 set ruler 
 
-" Current line, Total lines      Percentage
+" current line, total lines      percentage
 set rulerformat=%l,%L%=%P
 
-" Navigate over line breaks with h and l
+" navigate over line breaks with h and l
 set whichwrap+=<,>,h,l 
 
-" Ignore case when searching
+" ignore case when searching
 set ignorecase 
 
-" Don't ignore case when it contains uppercase letter
+" don't ignore case when search contains uppercase letters
 set smartcase 
 
-" Dynamic search
+" browser-like search
 set incsearch 
 
-" Easy regular expressions
+" 'normal' regular expressions
 set magic 
 
 " vi has two modes – 'beep repeatedly' and 'break everything'
 set noerrorbells 
 
-" How long to wait for 2+ key combos
+" how long to wait for 2+ key combos
 set timeoutlen=500 
 
-" Show line numbers
+" show line numbers
 set number 
 
-" Fold lines at {{ {N marker
+" fold lines at {{ {N marker
 set foldmethod=marker 
 
-" Default is latin1
+" default is latin1
 set encoding=utf8
 
-" Default file types
+" default file types
 set fileformats=unix 
 
-" Shiftwidth
+" shiftwidth (actually, this is the more important tab setting because of
+" expandtab)
 set shiftwidth=4
 
-" Tabwidth
+" tabwidth
 set tabstop=4 
 
-" Replace tabs by spaces
+" replace tabs by spaces
 set expandtab 
 
-" Break at space/tab/etc
+" break at space/tab/etc
 set linebreak 
 
-" Auto indent
+" keep manual indent
 set autoindent 
 
-" Smart indet
+" syntax indent
 set smartindent 
 
-" Wrap lines
+" wrap lines
 set wrap 
 
-" Command line history
+" command line history
 set history=700
 
-" Load changed files under certain conditions
+" load changed files under certain conditions
 set autoread
 
 set spelllang=de,en
 
-" my sane color scheme
+" my color scheme
 colorscheme 256-jungle
 
 syntax enable
 filetype plugin on
 filetype indent on
 
+" automatically reload .vimrc after save
 autocmd! BufWritePost .vimrc source ~/.vimrc
+
+" add unsupported filetypes
 autocmd! BufRead,BufNewFile *.pro set filetype=prolog
 autocmd! BufRead,BufNewFile *.dart set filetype=javascript
 
-" Create new lines above and below 
+" create new lines above and below 
 nnoremap <Leader>o o<Esc><Up>
 nnoremap <Leader>O O<Esc><Down>
 
-" Show the syntax item at the current position
+" show the syntax item at the current position (for development of color
+" schemes)
 nnoremap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
@@ -117,24 +122,25 @@ endfunc
 let mapleader = "-"
 
 nnoremap <leader>w :w!<cr>
-nnoremap <leader>e :e! ~/.vim_runtime/vimrc<cr>
 nnoremap <leader>tn :tabnew<cr>
 nnoremap <leader>te :tabedit 
 nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>tm :tabmove 
 nnoremap <C-h> :tabprevious<cr>
 nnoremap <C-l> :tabnext<cr>
-nnoremap <c-j> :m+<CR>==
-nnoremap <c-k> :m-2<CR>==
 nnoremap <leader>ss :setlocal spell! spelllang=de,en<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC
+
+" navigate with tags. see ftplugins/tex.vim
 nnoremap <leader>tt :tag 
 nnoremap <leader>tp :ptag 
 nnoremap <leader>ts :stag 
 
+" move selected lines up or down
+nnoremap <c-j> :m+<CR>==
+nnoremap <c-k> :m-2<CR>==
 inoremap <c-j> <Esc>:m+<CR>==gi
 inoremap <c-k> <Esc>:m-2<CR>==gi
-
 vnoremap <c-j> :m'>+<CR>gv=gv
 vnoremap <c-k> :m-2<CR>gv=gv
 
