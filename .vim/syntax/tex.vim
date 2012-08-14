@@ -131,7 +131,7 @@ if !exists("tex_no_math")
  " following used in the \part \chapter \section \subsection \subsubsection
  " \paragraph \subparagraph \author \title highlighting
  syn cluster texDocGroup		contains=texPartZone,@texPartGroup
- " CHANGEJO: Theorems and so on don't have to be in Sections
+ " CHANGEJO: SubSections don't have to be in Sections
  syn cluster texPartGroup		contains=texChapterZone,texSectionZone,texParaZone,@texChapterGroup
  syn cluster texChapterGroup		contains=texSectionZone,texParaZone,@texSectionGroup
  syn cluster texSectionGroup		contains=texSubSectionZone,texParaZone
