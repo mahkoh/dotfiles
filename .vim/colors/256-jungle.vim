@@ -10,7 +10,7 @@ let c_gnu = 1
 
 
 hi Normal	    ctermfg=253         ctermbg=234         cterm=None
-hi Cursor       ctermfg=253         ctermbg=253          cterm=None
+hi Cursor       ctermfg=253         ctermbg=57          cterm=None
 hi SpecialKey	ctermfg=70          ctermbg=None        cterm=None
 hi Directory	ctermfg=57          ctermbg=254         cterm=None
 hi ErrorMsg     ctermfg=160         ctermbg=245         cterm=None

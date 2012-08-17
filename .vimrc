@@ -90,12 +90,12 @@ set autoread
 
 set spelllang=de,en
 
-" my color scheme
-colorscheme 256-jungle
-
 syntax enable
 filetype plugin on
 filetype indent on
+
+" my color scheme
+colorscheme 256-jungle
 
 " automatically reload .vimrc after save
 autocmd! BufWritePost .vimrc source ~/.vimrc
