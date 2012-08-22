@@ -23,7 +23,4 @@ unclutter &
 # terminal daemon
 urxvtd -q &
 
-# dropbox daemon
-dropbox.py start &
-
 exec xmonad

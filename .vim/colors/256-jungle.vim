@@ -50,14 +50,37 @@ hi TabLineSel   ctermfg=104         ctermbg=236         cterm=Bold
 "vim: sw=4
 
 " NOTE: This requires gnome-terminal's color scheme
-hi  texMathDelimX     ctermfg=10   cterm=None
-hi  texThms           ctermfg=4    cterm=None
 hi  Delimiter         ctermfg=13   cterm=None
-hi  texRefZone        ctermfg=8    cterm=None
-hi  texRefLabel       ctermfg=7    cterm=None
-hi  texMath           ctermfg=12   cterm=None
-hi  texStatement      ctermfg=11   cterm=None
-hi  texTypeStyle      ctermfg=3    cterm=None
-hi  texSectionMarker  ctermfg=8    cterm=None
-hi  texSectionName    ctermfg=243  cterm=None
-hi  texSection        ctermfg=14   cterm=None
+"hi  texMathDelimX     ctermfg=10   cterm=None
+"hi  texThms           ctermfg=4    cterm=None
+"hi  texRefZone        ctermfg=8    cterm=None
+"hi  texRefLabel       ctermfg=7    cterm=None
+"hi  texMath           ctermfg=12   cterm=None
+"hi  texStatement      ctermfg=11   cterm=None
+"hi  texTypeStyle      ctermfg=3    cterm=None
+"hi  texSectionMarker  ctermfg=8    cterm=None
+"hi  texSectionName    ctermfg=243  cterm=None
+"hi  texSection        ctermfg=14   cterm=None
+
+hi  texArgument                  ctermfg=7
+hi  texDocumentStructure         ctermfg=14
+hi  texGenSubDelimiter           ctermfg=8
+hi  texGenSubName                ctermfg=243
+hi  texHighVisibility            ctermfg=12   cterm=None
+hi  texLowVisibility             ctermfg=240
+hi  texMathConstant              ctermfg=6
+hi  texMathDelimiter             ctermfg=10   cterm=None
+hi  texMathEquality              ctermfg=87
+hi  texMathFont                  ctermfg=130
+hi  texMathStructureParantheses  ctermfg=13   cterm=Bold
+hi  texMathGreek                 ctermfg=208
+hi  texMathModifier              ctermfg=244
+hi  texMathNumber                ctermfg=6
+hi  texMathParantheses           ctermfg=31   cterm=Bold
+hi  texMathRegion                ctermfg=12   cterm=None
+hi  texMathSymbols               ctermfg=208
+hi  texOption                    ctermfg=10   cterm=None
+hi  texStatement                 ctermfg=11
+hi  texStructDelimiter           ctermfg=14
+hi  texThmDelimiter              ctermfg=4
+hi  texMathSubSupScript          ctermfg=172  cterm=Bold

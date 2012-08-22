@@ -22,6 +22,8 @@ zstyle ':completion:*' menu select
 alias ls='ls --color=auto'
 alias :q=exit
 alias ra=ranger
+alias rename=perl-rename
+alias gm='vim ~/music/goodmusic'
 
 export PROMPT="%{$fg[green]%}%B%~$%b%{$reset_color%} "
 
