@@ -30,10 +30,10 @@ syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{proof}'  end='\\
 syn  match  texDocumentStructure  "\\begin{document}"
 syn  match  texDocumentStructure  "\\end{document}"
 syn  match  texDocumentStructure  "\\part{.*}"
-syn  match  texDocumentStructure  "\\section{.*}"
-syn  match  texDocumentStructure  "\\subsection{.*}"
-syn  match  texDocumentStructure  "\\subsubsection{.*}"
-syn  match  texDocumentStructure  "\\paragraph{.*}"
+syn  match  texDocumentStructure  "\\section\*\?{.*}"
+syn  match  texDocumentStructure  "\\subsection\*\?{.*}"
+syn  match  texDocumentStructure  "\\subsubsection\*\?{.*}"
+syn  match  texDocumentStructure  "\\paragraph\*\?{.*}"
 " NewCommand {{{1
 syn  match   texNewCmd        "\\newcommand"                              nextgroup=texNewCmdName
 syn  region  texNewCmdName    matchgroup=Delimiter  start="{"   end="}"   nextgroup=texNewCmdArgNum,texNewCmdValue  contained
@@ -111,7 +111,9 @@ syn match texMathConstant contained "\\infty"
 syn match texMathOperator contained '\\\(
             \infty
             \\)\@!\(
+            \wedge\|
             \weaks\|
+            \vee\|
             \uparrow\|
             \times\|
             \tilde\|
@@ -127,6 +129,7 @@ syn match texMathOperator contained '\\\(
             \otimes\|
             \norm\|
             \mapsto\|
+            \Lr\|
             \limsup\|
             \liminf\|
             \lim\|
@@ -139,6 +142,8 @@ syn match texMathOperator contained '\\\(
             \in\|
             \frac\|
             \fint\|
+            \fa\|
+            \es\|
             \downarrow\|
             \det\|
             \cup\|

@@ -13,6 +13,15 @@ nnoremap <F4> :! bibtex %:r <cr><cr>
 " create hdrtags for quick navigation
 nnoremap <leader>kk :w<cr>:! hdrtag %<cr>:set tags=./tags<cr>
 
+" edit tex syntax file
+nnoremap <leader>es :tabedit ~/.vim/syntax/tex.vim<cr>
+
+" edit tex plugin file
+nnoremap <leader>ep :tabedit ~/.vim/ftplugin/tex.vim<cr>
+
+" reload after edit
+autocmd! BufWritePost ~/.vim/ftplugin/tex.vim source ~/.vim/ftplugin/tex.vim
+
 " tab -> autocomplete
 inoremap <Tab> <c-n>
 

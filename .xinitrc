@@ -8,7 +8,7 @@ xmodmap .xmodmap
 xsetroot -cursor_name left_ptr
 
 # set background
-xloadimage -onroot -center /home/julian/pictures/bikinibottom.jpg
+xloadimage -onroot /home/julian/pictures/test.png
 
 # load fonts
 xset +fp /usr/share/fonts/local/
