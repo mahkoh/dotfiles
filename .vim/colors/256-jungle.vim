@@ -45,7 +45,8 @@ hi StatusLine   ctermfg=39          ctermbg=239         cterm=None
 hi VertSplit    ctermfg=239         ctermbg=239         cterm=None
 
 hi TabLine      ctermfg=245         ctermbg=239         cterm=None
-hi TabLineFill  ctermfg=239         ctermbg=239
+" don't set ctermfg=ctermbg. this kills the color. 
+hi TabLineFill  ctermfg=239
 hi TabLineSel   ctermfg=104         ctermbg=236         cterm=Bold
 "vim: sw=4
 

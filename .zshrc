@@ -3,9 +3,6 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
-# vim key settings
-bindkey -v
-
 # advanced autocomplete
 zstyle :compinstall filename '/home/julian/.zshrc'
 
