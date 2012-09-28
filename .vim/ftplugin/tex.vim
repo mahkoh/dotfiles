@@ -5,7 +5,7 @@ imap <F2> <esc><F2>
 
 " show
 " NOTE: 2> /dev/null doesn't work! fix this
-nnoremap <F3> :! zathura %:r.pdf > /dev/null 2> /dev/null &<cr><cr>
+nnoremap <F3> :! evince %:r.pdf > /dev/null 2> /dev/null &<cr><cr>
 
 " create bibtex files
 nnoremap <F4> :! bibtex %:r <cr><cr>
@@ -25,13 +25,7 @@ autocmd! BufWritePost ~/.vim/ftplugin/tex.vim source ~/.vim/ftplugin/tex.vim
 " tab -> autocomplete
 inoremap <Tab> <c-n>
 
-" vim is slow as hell. don't match parentheses
-NoMatchParen
-
 set showbreak=▶▶\ 
-
-" add space after last character of the line
-set virtualedit=onemore
 
 " latex looks best with two spaces as tabs
 " do I even use this?

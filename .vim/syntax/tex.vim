@@ -22,8 +22,9 @@ syn region texMakeAt start="\\makeatletter" end="\\makeatother"
 syn match  texComment "%.*$"
 " Theorems {{{1
 syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{thm}'    end='\\end{thm}'    transparent
-syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{defi}'   end='\\end{defi}'   transparent
+syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{dfn}'   end='\\end{dfn}'   transparent
 syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{lem}'    end='\\end{lem}'    transparent
+syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{kor}'    end='\\end{kor}'    transparent
 syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{bem}'    end='\\end{bem}'    transparent
 syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{proof}'  end='\\end{proof}'  transparent
 " Document Structure {{{1
@@ -35,7 +36,7 @@ syn  match  texDocumentStructure  "\\subsection\*\?{.*}"
 syn  match  texDocumentStructure  "\\subsubsection\*\?{.*}"
 syn  match  texDocumentStructure  "\\paragraph\*\?{.*}"
 " NewCommand {{{1
-syn  match   texNewCmd        "\\newcommand"                              nextgroup=texNewCmdName
+syn  match   texNewCmd        "\\\(re\)\?newcommand"                              nextgroup=texNewCmdName
 syn  region  texNewCmdName    matchgroup=Delimiter  start="{"   end="}"   nextgroup=texNewCmdArgNum,texNewCmdValue  contained
 syn  region  texNewCmdArgNum  matchgroup=Delimiter  start="\["  end="\]"  nextgroup=texNewCmdValue                   contained
 syn  region  texNewCmdValue   matchgroup=Delimiter  start="{"   end="}$"                                              contained
@@ -74,7 +75,7 @@ syn region texMathInlineText matchgroup=texMathInlineTextDelimiter start='\\text
 " Sub/Supscript {{{2
 syn match texMathSubSupScript contained '[\^_]'
 " Equality {{{2
-syn match texMathEquality contained ':\?\(=\|\\leq\|\\geq\|\\to\|<\|>\)'
+syn match texMathEquality contained ':\?\(=\|\\leq\|\\geq\|\\neq\|\\to\|<\|>\)'
 " Greek {{{2
 syn match texMathGreek contained '\\\(
             \alpha\|
@@ -82,12 +83,16 @@ syn match texMathGreek contained '\\\(
             \chi\|
             \delta\|
             \Delta\|
+            \epsilon\|
             \gamma\|
+            \Gamma\|
+            \kappa\|
             \lambda\|
             \Lambda\|
             \mu\|
             \nabla\|
             \nu\|
+            \tau\|
             \omega\|
             \Omega\|
             \phi\|
@@ -101,6 +106,8 @@ syn match texMathModifier contained '\\\(left\|right\|qquad\|quad\)'
 " Symbols {{{2
 syn match texMathSymbols contained '\\\(
             \emptyset\|
+            \bvo\|
+            \pm\|
             \R
             \\)'
 " Numbers {{{2
@@ -111,19 +118,27 @@ syn match texMathConstant contained "\\infty"
 syn match texMathOperator contained '\\\(
             \infty
             \\)\@!\(
+            \xrightarrow\|
+            \xra\|
             \wedge\|
-            \weaks\|
+            \weak\|
             \vee\|
             \uparrow\|
             \times\|
             \tilde\|
+            \supset\|
+            \supp\|
             \sup\|
             \sum\|
             \subset\|
+            \subset\|
+            \strict\|
             \sqrt\|
+            \sign\|
             \setminus\|
             \Rightarrow\|
             \prod\|
+            \po\|
             \partial\|
             \overline\|
             \otimes\|
@@ -137,14 +152,22 @@ syn match texMathOperator contained '\\\(
             \ldots\|
             \ldot\|
             \lb\|
+            \intertext\|
             \int\|
             \inf\|
             \in\|
+            \hm\|
+            \hat\|
             \frac\|
+            \forall\|
             \fint\|
             \fa\|
+            \f\|
+            \exists\|
+            \exact\|
             \es\|
             \downarrow\|
+            \div\|
             \det\|
             \cup\|
             \cong\|
@@ -153,12 +176,14 @@ syn match texMathOperator contained '\\\(
             \cdot\|
             \cap\|
             \bigcup\|
-            \bigcap
+            \bigcap\|
+            \big
             \\)'
 " Font {{{2
 syn match texMathFont contained '\\\(
             \mathcal\|
             \mathrm\|
+            \mathbf\|
             \mathbb
             \\)'
 " Highlight {{{1
