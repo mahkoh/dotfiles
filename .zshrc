@@ -17,10 +17,10 @@ zstyle ':completion:*' menu select
 
 # colorful emotions
 alias ls='ls --color=auto'
+alias l='ls --color=auto'
 alias :q=exit
 alias ra=ranger
 alias rename=perl-rename
-alias gm='vim ~/music/goodmusic'
 
 export PROMPT="%{$fg[green]%}%B%~$%b%{$reset_color%} "
 

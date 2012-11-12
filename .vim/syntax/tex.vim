@@ -22,10 +22,12 @@ syn region texMakeAt start="\\makeatletter" end="\\makeatother"
 syn match  texComment "%.*$"
 " Theorems {{{1
 syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{thm}'    end='\\end{thm}'    transparent
-syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{dfn}'   end='\\end{dfn}'   transparent
+syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{dfn}'    end='\\end{dfn}'    transparent
 syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{lem}'    end='\\end{lem}'    transparent
 syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{kor}'    end='\\end{kor}'    transparent
+syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{cor}'    end='\\end{cor}'    transparent
 syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{bem}'    end='\\end{bem}'    transparent
+syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{rem}'    end='\\end{rem}'    transparent
 syn  region  texThm  matchgroup=texThmDelimiter  start='\\begin{proof}'  end='\\end{proof}'  transparent
 " Document Structure {{{1
 syn  match  texDocumentStructure  "\\begin{document}"
@@ -36,14 +38,14 @@ syn  match  texDocumentStructure  "\\subsection\*\?{.*}"
 syn  match  texDocumentStructure  "\\subsubsection\*\?{.*}"
 syn  match  texDocumentStructure  "\\paragraph\*\?{.*}"
 " NewCommand {{{1
-syn  match   texNewCmd        "\\\(re\)\?newcommand"                              nextgroup=texNewCmdName
+syn  match   texNewCmd        "\\\(re\)\?newcommand"                      nextgroup=texNewCmdName
 syn  region  texNewCmdName    matchgroup=Delimiter  start="{"   end="}"   nextgroup=texNewCmdArgNum,texNewCmdValue  contained
-syn  region  texNewCmdArgNum  matchgroup=Delimiter  start="\["  end="\]"  nextgroup=texNewCmdValue                   contained
-syn  region  texNewCmdValue   matchgroup=Delimiter  start="{"   end="}$"                                              contained
+syn  region  texNewCmdArgNum  matchgroup=Delimiter  start="\["  end="\]"  nextgroup=texNewCmdValue                  contained
+syn  region  texNewCmdValue   matchgroup=Delimiter  start="{"   end="}$"                                            contained
 " DeclareMathOperator {{{1
 syn  match   texDecMathOp       "\\DeclareMathOperator"                   nextgroup=texDecMathOpName
 syn  region  texDecMathOpName   matchgroup=Delimiter  start="{"  end="}"  nextgroup=texDecMathOpValue  contained
-syn  region  texDecMathOpValue  matchgroup=Delimiter  start="{"  end="}"                                contained
+syn  region  texDecMathOpValue  matchgroup=Delimiter  start="{"  end="}"                               contained
 " Math {{{1
 " Math Region {{{2
 syn  region  texMathRegion  matchgroup=texInlineMathDelimiter  start="\$"                  end="\$"                contains=@texMathGroup skip='\\\$'
@@ -61,7 +63,7 @@ syn match texMathIgnoredStatement '\\\a\+\({[^{}]*}\)*' contained
 " Linebreak {{{2
 syn match texMathLineBreak '\\\\' contained
 " References {{{2
-syn match texRef '\\\(label\|ref\|tag\|cite\)' nextgroup=texRefArgument
+syn match texRef '\\\(label\|ref\|nonumber\|tag\|cite\)' nextgroup=texRefArgument
 syn region texRefArgument matchgroup=Delimiter start='{' end='}' contained
 " Parantheses {{{2
 syn match texMathParantheses contained '\(\\[{}]\|[()|]\)'
@@ -92,14 +94,20 @@ syn match texMathGreek contained '\\\(
             \mu\|
             \nabla\|
             \nu\|
+            \pi\|
             \tau\|
+            \theta\|
+            \Theta\|
             \omega\|
             \Omega\|
             \phi\|
             \psi\|
+            \sigma\|
             \varepsilon\|
             \varphi\|
-            \varpsi
+            \varpsi\|
+            \xi\|
+            \zeta
             \\)'
 " Modifier {{{2
 syn match texMathModifier contained '\\\(left\|right\|qquad\|quad\)'
@@ -121,9 +129,11 @@ syn match texMathOperator contained '\\\(
             \xrightarrow\|
             \xra\|
             \wedge\|
+            \weaks\|
             \weak\|
             \vee\|
             \uparrow\|
+            \top\|
             \times\|
             \tilde\|
             \supset\|
@@ -134,14 +144,17 @@ syn match texMathOperator contained '\\\(
             \subset\|
             \strict\|
             \sqrt\|
+            \simeq\|
             \sign\|
             \setminus\|
             \Rightarrow\|
             \prod\|
             \po\|
+            \perp\|
             \partial\|
             \overline\|
             \otimes\|
+            \op\|
             \norm\|
             \mapsto\|
             \Lr\|
@@ -168,7 +181,9 @@ syn match texMathOperator contained '\\\(
             \es\|
             \downarrow\|
             \div\|
+            \dist\|
             \det\|
+            \curl\|
             \cup\|
             \cong\|
             \colon\|

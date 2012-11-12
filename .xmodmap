@@ -1,6 +1,7 @@
-! disable capslock and set 'capslock -> esc'
+! disable capslock and set 'capslock <-> esc'
 clear Lock
 keycode 66 = Escape
+keycode 9 = Caps_Lock
 
 ! disable altgr and set 'altgr -> third level'
 remove mod1 = Alt_R

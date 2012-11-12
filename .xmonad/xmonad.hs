@@ -10,6 +10,7 @@
 import XMonad
 import XMonad.Util.EZConfig
 import XMonad.Layout.NoBorders
+import XMonad.Hooks.EwmhDesktops
 import Data.Monoid
 import System.Exit
 
@@ -221,7 +222,8 @@ myManageHook = composeAll
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = mempty
+myEventHook = fullscreenEventHook
+-- myEventHook = mempty
 
 ------------------------------------------------------------------------
 -- Status bars and logging
