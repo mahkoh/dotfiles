@@ -90,6 +90,7 @@ set autoread
 
 set spelllang=de,en
 
+call pathogen#infect()
 syntax enable
 filetype plugin on
 filetype indent on
