@@ -21,6 +21,7 @@ alias l='ls --color=auto'
 alias :q=exit
 alias ra=ranger
 alias rename=perl-rename
+alias easytag='easytag .'
 alias cvpn='ssh -D 1111 away'
 
 export PROMPT="%{$fg[green]%}%B%~$%b%{$reset_color%} "

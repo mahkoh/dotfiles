@@ -10,8 +10,8 @@ keycode 108 = ISO_Level3_Shift
 ! set the key right of the left shift to $ for latex
 keycode 94 = dollar
 
-! right windows key -> left alt key
-keycode 135 = Alt_L
+! right windows key -> left shift key
+keycode 135 = Shift_L
 
 ! add umlaute to the third level of dvorak
 keysym a = a A a A adiaeresis Adiaeresis
