@@ -18,6 +18,7 @@ zstyle ':completion:*' menu select
 # colorful emotions
 alias ls='ls --color=auto'
 alias l='ls --color=auto'
+#alias grep='grep -r -n'
 alias :q=exit
 alias ra=ranger
 alias rename=perl-rename

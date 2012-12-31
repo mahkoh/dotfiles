@@ -11,7 +11,7 @@ xmodmap .xmodmap
 xsetroot -cursor_name left_ptr
 
 # set background
-xloadimage -onroot /home/julian/pictures/Wallpaper/leafs.png
+xloadimage -onroot /home/julian/pictures/Wallpaper/scheife.png
 
 # load fonts
 xset +fp /usr/share/fonts/local/
@@ -25,5 +25,8 @@ unclutter &
 
 # terminal daemon
 urxvtd -q &
+
+# pulseaudio
+pulseaudio --start
 
 exec xmonad
