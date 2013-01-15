@@ -86,6 +86,7 @@ syn match texMathGreek contained '\\\(
             \delta\|
             \Delta\|
             \epsilon\|
+            \eta\|
             \gamma\|
             \Gamma\|
             \kappa\|
@@ -162,6 +163,7 @@ syn match texMathOperator contained '\\\(
             \liminf\|
             \lim\|
             \Leftrightarrow\|
+            \Leftarrow\|
             \ldots\|
             \ldot\|
             \lb\|

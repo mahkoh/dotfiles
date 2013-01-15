@@ -5,13 +5,13 @@ setxkbmap us dvp
 setxkbmap -option terminate:ctrl_alt_bksp
 
 # custom keymap changes
-xmodmap .xmodmap
+xmodmap .xmodmaprc
 
 # set standard cursor
 xsetroot -cursor_name left_ptr
 
 # set background
-xloadimage -onroot /home/julian/pictures/Wallpaper/scheife.png
+xloadimage -onroot /home/julian/pictures/Wallpaper/slumber.png
 
 # load fonts
 xset +fp /usr/share/fonts/local/

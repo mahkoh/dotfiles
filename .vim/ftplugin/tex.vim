@@ -1,7 +1,7 @@
 " compile
-nnoremap <F2> :w<cr>:! xelatex %<cr><cr>
-nmap <leader>jj i<F2>
-imap <F2> <esc><F2>
+nnoremap <buffer> <F2> :w<cr>:! xelatex %<cr><cr>
+nmap <buffer> <leader>jj <F2>
+imap <buffer> <F2> <esc><F2>
 
 " show
 " NOTE: 2> /dev/null doesn't work! fix this
