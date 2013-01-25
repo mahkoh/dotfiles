@@ -16,14 +16,16 @@ colors
 zstyle ':completion:*' menu select
 
 # colorful emotions
-alias ls='ls --color=auto'
-alias l='ls --color=auto'
+alias ls='ls --color=auto --time-style=+"%Y %b %d"'
+alias l=ls
 #alias grep='grep -r -n'
 alias :q=exit
 alias ra=ranger
 alias rename=perl-rename
 alias easytag='easytag .'
 alias cvpn='ssh -D 1111 away'
+alias lame='lame -h -b 320'
+alias date='date +"%Y-%m-%d %H:%M:%S %Z"'
 
 export PROMPT="%{$fg[green]%}%B%~$%b%{$reset_color%} "
 

@@ -26,7 +26,4 @@ unclutter &
 # terminal daemon
 urxvtd -q &
 
-# pulseaudio
-pulseaudio --start
-
 exec xmonad
