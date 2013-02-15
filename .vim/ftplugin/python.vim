@@ -1,2 +1,3 @@
 nnoremap <buffer> <F2> :w<cr>:!python %<cr>
-inoremap <s-tab> i<esc><<s
+nmap <buffer> <leader>jj <F2>
+inoremap <buffer> <s-tab> i<esc><<s

@@ -106,13 +106,13 @@ autocmd! BufRead,BufNewFile *.pro set filetype=prolog
 autocmd! BufRead,BufNewFile *.dart set filetype=javascript
 
 " create new lines above and below 
-nnoremap <Leader>o o<Esc><Up>
-nnoremap <Leader>O O<Esc><Down>
+nnoremap <leader>o o<esc><up>
+nnoremap <leader>O O<esc><down>
 
 " show the syntax item at the current position (for development of color
 " schemes)
-nnoremap <C-S-P> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
+nnoremap <c-s-p> :call <sid>SynStack()<cr>
+function! <sid>SynStack()
   if !exists("*synstack")
     return
    endif
@@ -140,8 +140,8 @@ nnoremap <leader>ts :stag
 " move selected lines up or down
 nnoremap <c-j> :m+<CR>==
 nnoremap <c-k> :m-2<CR>==
-inoremap <c-j> <Esc>:m+<CR>==gi
-inoremap <c-k> <Esc>:m-2<CR>==gi
+inoremap <c-j> <esc>:m+<CR>==gi
+inoremap <c-k> <esc>:m-2<CR>==gi
 vnoremap <c-j> :m'>+<CR>gv=gv
 vnoremap <c-k> :m-2<CR>gv=gv
 

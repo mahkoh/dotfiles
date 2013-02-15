@@ -34,3 +34,6 @@ export SUDO_EDITOR="/usr/bin/vim -p -X"
 export VISUAL=vim
 export EDITOR=vim
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma hlsearch' -\""
+
+# set path
+path+=~/bin
