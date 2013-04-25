@@ -26,4 +26,8 @@ unclutter &
 # terminal daemon
 urxvtd -q &
 
+# enable numlock
+numlockx
+
 exec xmonad
+# exec dwm

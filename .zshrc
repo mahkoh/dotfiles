@@ -17,6 +17,7 @@ zstyle ':completion:*' menu select
 
 # colorful emotions
 alias ls='ls --color=auto --time-style=+"%Y %b %d"'
+alias grep='grep --color=auto'
 alias l=ls
 #alias grep='grep -r -n'
 alias :q=exit
@@ -24,6 +25,7 @@ alias ra=ranger
 alias rename=perl-rename
 alias easytag='easytag .'
 alias cvpn='ssh -D 1111 away'
+alias cvpn2='ssh -D 1111 cent'
 alias lame='lame -h -b 320'
 alias date='date +"%Y-%m-%d %H:%M:%S %Z"'
 
@@ -35,5 +37,9 @@ export VISUAL=vim
 export EDITOR=vim
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma hlsearch' -\""
 
+export GOPATH=/home/julian/go
+path+=~/go/bin
+
 # set path
 path+=~/bin
+path+=~/.cabal/bin

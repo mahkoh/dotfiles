@@ -33,6 +33,9 @@ set whichwrap+=<,>,h,l
 " ignore case when searching
 set ignorecase 
 
+" disable lag when <esc>O
+set noesckeys
+
 " don't ignore case when search contains uppercase letters
 set smartcase 
 
@@ -90,6 +93,9 @@ set autoread
 
 set spelllang=de,en
 
+" use go plugin
+set rtp+=$GOROOT/misc/vim
+
 call pathogen#infect()
 syntax enable
 filetype plugin on
@@ -131,6 +137,9 @@ nnoremap <C-h> :tabprevious<cr>
 nnoremap <C-l> :tabnext<cr>
 nnoremap <leader>ss :setlocal spell! spelllang=de,en<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC
+
+" go two edits back
+nnoremap <leader>; g;g;
 
 " navigate with tags. see ftplugins/tex.vim
 nnoremap <leader>tt :tag 

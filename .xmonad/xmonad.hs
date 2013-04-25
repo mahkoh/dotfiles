@@ -250,10 +250,12 @@ myStartupHook = return ()
 --
 main = xmonad $ defaults  `additionalKeysP` myAddKeys
 
-myAddKeys = [ ("<XF86AudioPlay>"  , spawn "cmus-remote -u"),
-              ("<XF86AudioNext>"  , spawn "cmus-remote -n"),
-              ("<XF86AudioPrev>"  , spawn "cmus-remote -r"),
-              ("M-<XF86AudioPlay>", spawn "goodmusic"     )
+myAddKeys = [ ("<XF86AudioPlay>"  , spawn "cmus-remote -u"         ),
+              ("<XF86AudioNext>"  , spawn "cmus-remote -n"         ),
+              ("<XF86AudioPrev>"  , spawn "cmus-remote -r"         ),
+              ("<F11>"            , spawn "amixer set 'Master' 3%-"),
+              ("<F12>"            , spawn "amixer set 'Master' 3%+"),
+              ("M-<XF86AudioPlay>", spawn "goodmusic"              )
             ]
 
 
