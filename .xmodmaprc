@@ -1,25 +1,47 @@
-! disable capslock and set 'capslock <-> esc'
-clear Lock
-keycode 66 = Escape
+clear lock
+clear control
+clear shift
+clear mod4
+
+! caps_lock -> super_r -> ctrl
+keycode 66 = Super_R
+add Control = Super_R
+
+! esc = caps_lock
 keycode 9 = Caps_Lock
 
-! disable altgr and set 'altgr -> third level'
-remove mod1 = Alt_R
-keycode 108 = ISO_Level3_Shift
+! menu -> third level
+keycode 135 = ISO_Level3_Shift
 
-! set the key right of the left shift to $ for latex
-keycode 94 = dollar
+! left extra key -> esc, dollar
+keycode 94 = Escape dollar
 
-! right windows key -> left shift key
-keycode 135 = Shift_L
+! altgr -> shift
+keycode 108 = Shift_L
 
-! add umlaute to the third level of dvorak
+! print -> home
+keycode 107 = Home
+
+! pause -> end
+keycode 127 = End
+
+! umlaute
 keysym a = a A a A adiaeresis Adiaeresis
 keysym o = o O o O odiaeresis Odiaeresis
 keysym u = u U u U udiaeresis Udiaeresis
 keysym s = s S s S ssharp section
 
-! no multimedia keys? change printscr, scrollock, etc.
-keycode 78 = XF86AudioPlay
-keycode 107 = XF86AudioPrev
-keycode 127 = XF86AudioNext
+! disable left shift
+! keycode 50 =
+
+! disable left ctrl
+! keycode 37 =
+
+! disable left super
+! keycode 133 =
+
+! disable right ctrl
+! keycode 105 =
+
+! disable right shift
+! keycode 62 =

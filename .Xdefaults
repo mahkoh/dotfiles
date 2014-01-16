@@ -1,7 +1,7 @@
 URxvt*cursorBlink : true
 
-! to match gnome-terminal "Linux console" scheme
-! foreground/background
+!to match gnome-terminal "Linux console" scheme
+!foreground/background
 URxvt*foreground : #DDDDDD
 URxvt*background : #1C1C1C
 !black
@@ -29,11 +29,30 @@ URxvt.color14    : #35E3E6
 URxvt.color7     : #D3D9D0
 URxvt.color15    : #ECEDEB
 
-URxvt*font        : xft:Termsyn:pixelsize=19
-URxvt*boldFont    : xft:Termsyn:bold:pixelsize=19
-URxvt*saveLines   : 12000
-URxvt*scrollBar   : false
-URxvt*scrollstyle : rxvt
-URxvt*cursorColor : grey
+!URxvt.color0  : #262729
+!URxvt.color1  : #f92671
+!URxvt.color2  : #a6e22e
+!URxvt.color3  : #fd971f
+!URxvt.color4  : #1692d0
+!URxvt.color5  : #9e6ffe
+!URxvt.color6  : #5e7175
+!URxvt.color7  : #ffffff
+!URxvt.color8  : #262729
+!URxvt.color9  : #ff669d
+!URxvt.color10 : #beed5f
+!URxvt.color11 : #e6db74
+!URxvt.color12 : #66d9ef
+!URxvt.color13 : #df92f6
+!URxvt.color14 : #a3babf
+!URxvt.color15 : #ffffff
 
-
+!xft is slow as fuck
+URxvt*font            : -misc-termsyn-medium-*-normal-*-14-*-*-*-*-*-iso8859-*
+URxvt*boldFont        : -misc-termsyn-bold-*-normal-*-14-*-*-*-*-*-iso8859-*
+URxvt*saveLines       : 12000
+URxvt*scrollBar       : false
+URxvt*scrollstyle     : rxvt
+URxvt*cursorColor     : grey
+URxvt.perl-ext-common : default,matcher
+URxvt.url-launcher    : /usr/bin/chromium
+URxvt.matcher.button  : 1

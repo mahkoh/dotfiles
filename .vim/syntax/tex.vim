@@ -1,5 +1,3 @@
-" Version 1
-
 scriptencoding utf-8
 let b:current_syntax="tex"
 syn sync fromstart

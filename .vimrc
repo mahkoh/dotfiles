@@ -96,7 +96,7 @@ set spelllang=de,en
 " use go plugin
 set rtp+=$GOROOT/misc/vim
 
-call pathogen#infect()
+" call pathogen#infect()
 syntax enable
 filetype plugin on
 filetype indent on
@@ -110,6 +110,8 @@ autocmd! BufWritePost .vimrc source ~/.vimrc
 " add unsupported filetypes
 autocmd! BufRead,BufNewFile *.pro set filetype=prolog
 autocmd! BufRead,BufNewFile *.dart set filetype=javascript
+autocmd! BufRead *.vala,*.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+autocmd! BufRead,BufNewFile *.vala,*.vapi setfiletype vala
 
 " create new lines above and below 
 nnoremap <leader>o o<esc><up>
@@ -137,6 +139,7 @@ nnoremap <C-h> :tabprevious<cr>
 nnoremap <C-l> :tabnext<cr>
 nnoremap <leader>ss :setlocal spell! spelllang=de,en<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC
+vnoremap <leader>c :!align<cr>
 
 " go two edits back
 nnoremap <leader>; g;g;
@@ -154,3 +157,14 @@ inoremap <c-k> <esc>:m-2<CR>==gi
 vnoremap <c-j> :m'>+<CR>gv=gv
 vnoremap <c-k> :m-2<CR>gv=gv
 
+" vundle
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/syntastic'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+
+let g:syntastic_full_redraws = 0
