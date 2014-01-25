@@ -31,6 +31,8 @@ set shiftwidth=2
 
 set scrolloff=7
 
+set tabstop=2 
+
 " I use my own indent
 set nosmartindent
 filetype indent off
