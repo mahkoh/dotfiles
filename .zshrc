@@ -1,9 +1,10 @@
 # history
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt inc_append_history
 setopt share_history
+setopt hist_ignore_dups
 
 fpath=(~/.zsh/completion $fpath)
 # advanced autocomplete
@@ -31,6 +32,7 @@ alias cvpn='ssh -D 1111 fedora'
 alias lame='lame -h -b 320'
 alias date='date +"%Y-%m-%d %H:%M:%S %Z"'
 alias unrar='unrar x'
+alias ev='evince'
 
 export PROMPT="%{$fg[green]%}%B%~$%b%{$reset_color%} "
 
@@ -40,12 +42,16 @@ export VISUAL=vim
 export EDITOR=vim
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma hlsearch' -\""
 
+export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
+
 export GOPATH=/home/julian/go
 path+=~/go/bin
 
 # set path
 path+=~/bin
 path+=~/.cabal/bin
+path+=~/rust/cargo/target
 
 function mkcd() {
     mkdir -p $1 && cd $1

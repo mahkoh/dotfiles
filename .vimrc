@@ -112,6 +112,8 @@ autocmd! BufRead,BufNewFile *.pro set filetype=prolog
 autocmd! BufRead,BufNewFile *.dart set filetype=javascript
 autocmd! BufRead *.vala,*.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 autocmd! BufRead,BufNewFile *.vala,*.vapi setfiletype vala
+autocmd! BufRead,BufNewFile *.txp setfiletype patoline
+autocmd! BufRead,BufNewFile *.choo setfiletype choo
 
 " create new lines above and below 
 nnoremap <leader>o o<esc><up>
@@ -140,6 +142,8 @@ nnoremap <C-l> :tabnext<cr>
 nnoremap <leader>ss :setlocal spell! spelllang=de,en<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC
 vnoremap <leader>c :!align<cr>
+vnoremap <leader>C :!align "
+vnoremap <leader>G :w !gist txt<cr>
 
 " go two edits back
 nnoremap <leader>; g;g;
@@ -157,14 +161,18 @@ inoremap <c-k> <esc>:m-2<CR>==gi
 vnoremap <c-j> :m'>+<CR>gv=gv
 vnoremap <c-k> :m-2<CR>gv=gv
 
+let g:ycm_server_log_level = 'debug'
+
 " vundle
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
+Bundle 'MarcWeber/vim-addon-local-vimrc'
+Bundle 'kchmck/vim-coffee-script'
 
 let g:syntastic_full_redraws = 0
+let g:ycm_enable_diagnostic_highlighting = 0
+let g:syntastic_python_python_exec = 'python2'

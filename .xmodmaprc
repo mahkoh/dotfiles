@@ -11,7 +11,10 @@ add Control = Super_R
 keycode 9 = Caps_Lock
 
 ! menu -> third level
-keycode 135 = ISO_Level3_Shift
+keycode 135 = Mode_switch
+
+! left shift -> third level
+keycode 50 = Mode_switch
 
 ! left extra key -> esc, dollar
 keycode 94 = Escape dollar
@@ -26,22 +29,31 @@ keycode 107 = Home
 keycode 127 = End
 
 ! umlaute
-keysym a = a A a A adiaeresis Adiaeresis
-keysym o = o O o O odiaeresis Odiaeresis
-keysym u = u U u U udiaeresis Udiaeresis
-keysym s = s S s S ssharp section
+keysym a = a A adiaeresis Adiaeresis
+keysym o = o O odiaeresis Odiaeresis
+keysym u = u U udiaeresis Udiaeresis
+keysym s = s S ssharp section
 
-! disable left shift
-! keycode 50 =
+! numpad
+keysym b = b B 0
+keysym m = m M 1
+keysym w = w W 2
+keysym v = v V 3
+keysym h = h H 4
+keysym t = t T 5
+keysym n = n N 6
+keysym g = g G 7
+keysym c = c C 8
+keysym r = r R 9
 
-! disable left ctrl
+! left ctrl
 ! keycode 37 =
 
-! disable left super
+! left super
 ! keycode 133 =
 
-! disable right ctrl
+! right ctrl
 ! keycode 105 =
 
-! disable right shift
+! right shift
 ! keycode 62 =
