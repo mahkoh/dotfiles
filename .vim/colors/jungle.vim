@@ -41,6 +41,9 @@ hi TabLine                      ctermfg=245   ctermbg=239   cterm=None
 hi TabLineFill                  ctermfg=239
 hi TabLineSel                   ctermfg=104   ctermbg=236   cterm=Bold
 
+hi IndentGuidesEven                           ctermbg=236
+hi IndentGuidesOdd                            ctermbg=237
+
 hi Delimiter                    ctermfg=13    ctermbg=None  cterm=None
 hi texArgument                  ctermfg=7     ctermbg=None  cterm=None
 hi texDocumentStructure         ctermfg=14    ctermbg=None  cterm=None

@@ -33,6 +33,8 @@ alias lame='lame -h -b 320'
 alias date='date +"%Y-%m-%d %H:%M:%S %Z"'
 alias unrar='unrar x'
 alias ev='evince'
+alias node='node --harmony --use-strict'
+alias autocommit='git commit -am "autocommit $(date)"'
 
 export PROMPT="%{$fg[green]%}%B%~$%b%{$reset_color%} "
 
@@ -51,7 +53,6 @@ path+=~/go/bin
 # set path
 path+=~/bin
 path+=~/.cabal/bin
-path+=~/rust/cargo/target
 
 function mkcd() {
     mkdir -p $1 && cd $1

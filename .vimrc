@@ -70,6 +70,9 @@ set shiftwidth=4
 " tabwidth
 set tabstop=4 
 
+" softtabstop
+set softtabstop=4
+
 " replace tabs by spaces
 set expandtab 
 
@@ -114,6 +117,7 @@ autocmd! BufRead *.vala,*.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 autocmd! BufRead,BufNewFile *.vala,*.vapi setfiletype vala
 autocmd! BufRead,BufNewFile *.txp setfiletype patoline
 autocmd! BufRead,BufNewFile *.choo setfiletype choo
+autocmd! BufRead,BufNewFile *.adoc setfiletype asciidoc
 
 " create new lines above and below 
 nnoremap <leader>o o<esc><up>
@@ -144,6 +148,7 @@ nnoremap <leader>ev :vsplit $MYVIMRC
 vnoremap <leader>c :!align<cr>
 vnoremap <leader>C :!align "
 vnoremap <leader>G :w !gist txt<cr>
+nnoremap <leader>r :redraw!<cr>
 
 " go two edits back
 nnoremap <leader>; g;g;
@@ -172,7 +177,12 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/syntastic'
 Bundle 'MarcWeber/vim-addon-local-vimrc'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'kchmck/vim-indent-guides'
 
 let g:syntastic_full_redraws = 0
 let g:ycm_enable_diagnostic_highlighting = 0
 let g:syntastic_python_python_exec = 'python2'
+" let g:indent_guides_guide_size = 1
+" let g:indent_guides_start_level = 2
+" let g:indent_guides_auto_colors = 0
+" let g:indent_guides_enable_on_vim_startup = 1
