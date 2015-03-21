@@ -30,7 +30,7 @@ syn keyword   rustKeyword     unsafe virtual where while
 syn keyword   rustKeyword     use nextgroup=rustModPath,rustModPathInUse skipwhite skipempty
 " FIXME: Scoped impl's name is also fallen in this category
 syn keyword   rustKeyword     mod trait struct enum type nextgroup=rustIdentifier skipwhite skipempty
-syn keyword   rustStorage     mut ref static const
+syn keyword   rustStorage     own mut ref static const
 
 syn keyword   rustInvalidBareKeyword crate
 
@@ -57,11 +57,11 @@ syn match rustMacroVariable "$\w\+"
 syn keyword   rustReservedKeyword alignof be do offsetof priv pure sizeof typeof unsized yield
 
 " Built-in types {{{2
-syn keyword   rustType        int uint float char bool u8 u16 u32 u64 f32
+syn keyword   rustType        isize usize float char bool u8 u16 u32 u64 f32
 syn keyword   rustType        f64 i8 i16 i32 i64 str Self
 
 " Things from the prelude (src/libstd/prelude.rs) {{{2
-syn keyword rustTrait Copy Send Sized Sync
+syn keyword rustTrait Copy Sized
 syn keyword rustTrait Add Sub Mul Div Rem Neg Not
 syn keyword rustTrait BitAnd BitOr BitXor
 syn keyword rustTrait Drop Deref DerefMut
@@ -109,13 +109,13 @@ syn region    rustString      start=+"+ skip=+\\\\\|\\"+ end=+"+ contains=rustEs
 syn region    rustString      start='b\?r\z(#*\)"' end='"\z1' contains=@Spell
 
 syn region    rustAttribute   start="#!\?\[" end="\]" contains=rustString,rustDeriving
-syn region    rustDeriving    start="deriving(" end=")" contained contains=rustTrait
+syn region    rustDeriving    start="derive(" end=")" contained contains=rustTrait
 
 " Number literals
-syn match     rustDecNumber   display "\<[0-9][0-9_]*\%([iu]\%(8\|16\|32\|64\)\=\)\="
-syn match     rustHexNumber   display "\<0x[a-fA-F0-9_]\+\%([iu]\%(8\|16\|32\|64\)\=\)\="
-syn match     rustOctNumber   display "\<0o[0-7_]\+\%([iu]\%(8\|16\|32\|64\)\=\)\="
-syn match     rustBinNumber   display "\<0b[01_]\+\%([iu]\%(8\|16\|32\|64\)\=\)\="
+syn match     rustDecNumber   display "\<[0-9][0-9_]*\%([iu]\%(s\|8\|16\|32\|64\)\=\)\="
+syn match     rustHexNumber   display "\<0x[a-fA-F0-9_]\+\%([iu]\%(s\|8\|16\|32\|64\)\=\)\="
+syn match     rustOctNumber   display "\<0o[0-7_]\+\%([iu]\%(s\|8\|16\|32\|64\)\=\)\="
+syn match     rustBinNumber   display "\<0b[01_]\+\%([iu]\%(s\|8\|16\|32\|64\)\=\)\="
 
 " Special case for numbers of the form "1." which are float literals, unless followed by
 " an identifier, which makes them integer literals with a method call or field access.

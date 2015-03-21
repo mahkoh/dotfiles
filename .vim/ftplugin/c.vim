@@ -1,6 +1,7 @@
 setlocal noexpandtab
 setlocal tabstop=8
 setlocal shiftwidth=8
+setlocal softtabstop=8
 
 sign define dummy
 execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
