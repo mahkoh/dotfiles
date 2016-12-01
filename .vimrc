@@ -18,6 +18,9 @@ set undoreload=10000
 " screen lines above and below the cursor
 set scrolloff=4 
 
+" bash-style completion
+set wildmode=longest,list,full
+
 " visual menu
 set wildmenu 
 
@@ -94,10 +97,16 @@ set history=700
 " load changed files under certain conditions
 set autoread
 
+" open all
+set tabpagemax=1000
+
 set spelllang=de,en
 
 " use go plugin
 set rtp+=$GOROOT/misc/vim
+
+" disable folding
+set nofoldenable
 
 " call pathogen#infect()
 syntax enable
@@ -118,6 +127,9 @@ autocmd! BufRead,BufNewFile *.vala,*.vapi setfiletype vala
 autocmd! BufRead,BufNewFile *.txp setfiletype patoline
 autocmd! BufRead,BufNewFile *.choo setfiletype choo
 autocmd! BufRead,BufNewFile *.adoc setfiletype asciidoc
+autocmd! BufRead,BufNewFile *.lrsb setfiletype lrsb
+autocmd! BufRead,BufNewFile LRSBuild setfiletype lrsb
+autocmd! BufRead,BufNewFile LRSBuild2 setfiletype lrsb
 
 " create new lines above and below 
 nnoremap <leader>o o<esc><up>
@@ -137,6 +149,7 @@ endfunc
 let mapleader = "-"
 
 nnoremap <leader>w :w!<cr>
+nnoremap <leader>d :!dup<cr><cr>
 nnoremap <leader>tn :tabnew<cr>
 nnoremap <leader>te :tabedit 
 nnoremap <leader>tc :tabclose<cr>
@@ -149,6 +162,11 @@ vnoremap <leader>c :!align<cr>
 vnoremap <leader>C :!align "
 vnoremap <leader>G :w !gist txt<cr>
 nnoremap <leader>r :redraw!<cr>
+vnoremap p pgvy
+vnoremap P Pgvy
+nnoremap <leader>p /<c-l><cr>
+nnoremap <leader>P ?<c-l><cr>
+nnoremap K <nop>
 
 " go two edits back
 nnoremap <leader>; g;g;
@@ -174,7 +192,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 " Bundle 'Valloric/YouCompleteMe'
-Bundle 'scrooloose/syntastic'
+" Bundle 'scrooloose/syntastic'
 Bundle 'MarcWeber/vim-addon-local-vimrc'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kchmck/vim-indent-guides'

@@ -20,7 +20,6 @@ hi DiffText                     ctermfg=165   ctermbg=244   cterm=None
 hi Constant                     ctermfg=76    ctermbg=None  cterm=None
 hi Todo                         ctermfg=162   ctermbg=None  cterm=Bold
 hi Identifier                   ctermfg=142   ctermbg=None  cterm=Bold
-hi rustMacro                    ctermfg=143   ctermbg=None  cterm=Bold
 hi Error                        ctermfg=None  ctermbg=9     cterm=Bold
 hi Special                      ctermfg=172   ctermbg=None  cterm=Bold
 hi Ignore                       ctermfg=221   ctermbg=None  cterm=Bold
@@ -67,3 +66,8 @@ hi texStatement                 ctermfg=11    ctermbg=None  cterm=None
 hi texStructDelimiter           ctermfg=14    ctermbg=None  cterm=None
 hi texThmDelimiter              ctermfg=4     ctermbg=None  cterm=None
 hi texMathSubSupScript          ctermfg=172   ctermbg=None  cterm=Bold
+
+hi rustUnsafe                   ctermfg=33    ctermbg=None  cterm=Bold
+hi rustSafe                     ctermfg=240   ctermbg=None  cterm=Bold
+hi rustQuestionmark             ctermfg=166   ctermbg=None  cterm=Bold
+hi rustMacro                    ctermfg=143   ctermbg=None  cterm=Bold

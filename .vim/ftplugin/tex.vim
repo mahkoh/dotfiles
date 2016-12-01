@@ -21,7 +21,7 @@ nnoremap <leader>ep :tabedit ~/.vim/ftplugin/tex.vim<cr>
 autocmd! BufWritePost ~/.vim/ftplugin/tex.vim source ~/.vim/ftplugin/tex.vim
 
 " tab -> autocomplete
-inoremap <Tab> <c-n>
+" inoremap <Tab> <c-n>
 
 set showbreak=▶▶\ 
 

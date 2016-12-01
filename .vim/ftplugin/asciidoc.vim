@@ -1,4 +1,4 @@
-nnoremap <buffer> <leader>jj :w<cr>:! make<cr><cr>
+nnoremap <buffer> <leader>jj :w<cr>:! asciidoctor %<cr><cr>
 
-setlocal tw=79
+setlocal tw=80
 setlocal colorcolumn=+1

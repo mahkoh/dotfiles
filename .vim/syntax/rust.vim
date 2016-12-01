@@ -24,13 +24,14 @@ syn keyword   rustKeyword     continue
 syn keyword   rustKeyword     extern nextgroup=rustExternCrate,rustObsoleteExternMod skipwhite skipempty
 syn keyword   rustKeyword     fn nextgroup=rustFuncName skipwhite skipempty
 syn keyword   rustKeyword     for in if impl let
-syn keyword   rustKeyword     loop once proc pub
+syn keyword   rustKeyword     loop proc pub
 syn keyword   rustKeyword     return super
-syn keyword   rustKeyword     unsafe virtual where while
+syn keyword   rustKeyword     virtual where while
+syn keyword   rustUnsafe      unsafe
 syn keyword   rustKeyword     use nextgroup=rustModPath,rustModPathInUse skipwhite skipempty
 " FIXME: Scoped impl's name is also fallen in this category
 syn keyword   rustKeyword     mod trait struct enum type nextgroup=rustIdentifier skipwhite skipempty
-syn keyword   rustStorage     own mut ref static const
+syn keyword   rustStorage     move mut ref static const
 
 syn keyword   rustInvalidBareKeyword crate
 
@@ -57,17 +58,8 @@ syn match rustMacroVariable "$\w\+"
 syn keyword   rustReservedKeyword alignof be do offsetof priv pure sizeof typeof unsized yield
 
 " Built-in types {{{2
-syn keyword   rustType        isize usize float char bool u8 u16 u32 u64 f32
+syn keyword   rustType        isize usize char bool d8 u8 u16 u32 u64 f32
 syn keyword   rustType        f64 i8 i16 i32 i64 str Self
-
-" Things from the prelude (src/libstd/prelude.rs) {{{2
-syn keyword rustTrait Copy Sized
-syn keyword rustTrait Add Sub Mul Div Rem Neg Not
-syn keyword rustTrait BitAnd BitOr BitXor
-syn keyword rustTrait Drop Deref DerefMut
-syn keyword rustTrait Shl Shr Index IndexMut
-syn keyword rustTrait PartialEq PartialOrd Eq Ord
-syn keyword rustTrait Box
 
 syn keyword rustSelf self
 syn keyword rustBoolean true false
@@ -99,6 +91,7 @@ syn match     rustOperator     display "&&\|||"
 
 syn match     rustMacro       '\w\(\w\)*!' contains=rustAssert,rustFail
 syn match     rustMacro       '#\w\(\w\)*' contains=rustAssert,rustFail
+syn match     rustQuestionmark '?'
 
 syn match     rustEscapeError   display contained /\\./
 syn match     rustEscape        display contained /\\\([nrt0\\'"]\|x\x\{2}\)/
@@ -112,10 +105,10 @@ syn region    rustAttribute   start="#!\?\[" end="\]" contains=rustString,rustDe
 syn region    rustDeriving    start="derive(" end=")" contained contains=rustTrait
 
 " Number literals
-syn match     rustDecNumber   display "\<[0-9][0-9_]*\%([iu]\%(s\|8\|16\|32\|64\)\=\)\="
-syn match     rustHexNumber   display "\<0x[a-fA-F0-9_]\+\%([iu]\%(s\|8\|16\|32\|64\)\=\)\="
-syn match     rustOctNumber   display "\<0o[0-7_]\+\%([iu]\%(s\|8\|16\|32\|64\)\=\)\="
-syn match     rustBinNumber   display "\<0b[01_]\+\%([iu]\%(s\|8\|16\|32\|64\)\=\)\="
+syn match     rustDecNumber   display "\<[0-9][0-9_]*\%([iu]\%(size\|8\|16\|32\|64\)\=\)\="
+syn match     rustHexNumber   display "\<0x[a-fA-F0-9_]\+\%([iu]\%(size\|8\|16\|32\|64\)\=\)\="
+syn match     rustOctNumber   display "\<0o[0-7_]\+\%([iu]\%(size\|8\|16\|32\|64\)\=\)\="
+syn match     rustBinNumber   display "\<0b[01_]\+\%([iu]\%(size\|8\|16\|32\|64\)\=\)\="
 
 " Special case for numbers of the form "1." which are float literals, unless followed by
 " an identifier, which makes them integer literals with a method call or field access.
@@ -140,12 +133,12 @@ syn match   rustCharacterInvalidUnicode   display contained /b'\zs[^[:cntrl:][:g
 syn match   rustCharacter   /b'\([^\\]\|\\\(.\|x\x\{2}\)\)'/ contains=rustEscape,rustEscapeError,rustCharacterInvalid,rustCharacterInvalidUnicode
 syn match   rustCharacter   /'\([^\\]\|\\\(.\|x\x\{2}\|u\x\{4}\|U\x\{8}\)\)'/ contains=rustEscape,rustEscapeUnicode,rustEscapeError,rustCharacterInvalid
 
-syn region rustCommentLine                                        start="//"                      end="$"   contains=rustTodo,@Spell
-syn region rustCommentLineDoc                                     start="//\%(//\@!\|!\)"         end="$"   contains=rustTodo,@Spell
-syn region rustCommentBlock    matchgroup=rustCommentBlock        start="/\*\%(!\|\*[*/]\@!\)\@!" end="\*/" contains=rustTodo,rustCommentBlockNest,@Spell
-syn region rustCommentBlockDoc matchgroup=rustCommentBlockDoc     start="/\*\%(!\|\*[*/]\@!\)"    end="\*/" contains=rustTodo,rustCommentBlockDocNest,@Spell
-syn region rustCommentBlockNest matchgroup=rustCommentBlock       start="/\*"                     end="\*/" contains=rustTodo,rustCommentBlockNest,@Spell contained transparent
-syn region rustCommentBlockDocNest matchgroup=rustCommentBlockDoc start="/\*"                     end="\*/" contains=rustTodo,rustCommentBlockDocNest,@Spell contained transparent
+syn region rustCommentLine                                        start="//"                      end="$"   contains=rustTodo,rustSafe,@Spell
+syn region rustCommentLineDoc                                     start="//\%(//\@!\|!\)"         end="$"   contains=rustTodo,rustSafe,@Spell
+syn region rustCommentBlock    matchgroup=rustCommentBlock        start="/\*\%(!\|\*[*/]\@!\)\@!" end="\*/" contains=rustTodo,rustSafe,rustCommentBlockNest,@Spell
+syn region rustCommentBlockDoc matchgroup=rustCommentBlockDoc     start="/\*\%(!\|\*[*/]\@!\)"    end="\*/" contains=rustTodo,rustSafe,rustCommentBlockDocNest,@Spell
+syn region rustCommentBlockNest matchgroup=rustCommentBlock       start="/\*"                     end="\*/" contains=rustTodo,rustSafe,rustCommentBlockNest,@Spell contained transparent
+syn region rustCommentBlockDocNest matchgroup=rustCommentBlockDoc start="/\*"                     end="\*/" contains=rustTodo,rustSafe,rustCommentBlockDocNest,@Spell contained transparent
 " FIXME: this is a really ugly and not fully correct implementation. Most
 " importantly, a case like ``/* */*`` should have the final ``*`` not being in
 " a comment, but in practice at present it leaves comments open two levels
@@ -159,6 +152,7 @@ syn region rustCommentBlockDocNest matchgroup=rustCommentBlockDoc start="/\*"   
 " worse with ``\%(/\@<!\*\)\@<!``, either...
 
 syn keyword rustTodo contained TODO FIXME XXX NB NOTE
+syn keyword rustSafe contained UNSAFE SAFE
 
 " Folding rules {{{2
 " Trivial folding rules to begin with.
@@ -211,7 +205,9 @@ hi def link rustCommentBlockDoc rustCommentLineDoc
 hi def link rustAssert        PreCondit
 hi def link rustFail          PreCondit
 hi def link rustMacro         Macro
+hi def link rustQuestionmark  Macro
 hi def link rustType          Type
+hi def link rustUnsafe        rustKeyword
 hi def link rustTodo          Todo
 hi def link rustAttribute     PreProc
 hi def link rustDeriving      PreProc

@@ -47,8 +47,10 @@ URxvt.color15    : #ECEDEB
 !URxvt.color15 : #ffffff
 
 !xft is slow as fuck
-URxvt*font            : -misc-termsyn-medium-*-normal-*-14-*-*-*-*-*-iso8859-*
-URxvt*boldFont        : -misc-termsyn-bold-*-normal-*-14-*-*-*-*-*-iso8859-*
+!URxvt*font            : -misc-termsyn-medium-*-normal-*-14-*-*-*-*-*-iso8859-*
+!URxvt*boldFont        : -misc-termsyn-bold-*-normal-*-14-*-*-*-*-*-iso8859-*
+URxvt*font            : -xos4-terminus-medium-*-normal-*-12-*-*-*-*-*-iso8859-*
+URxvt*boldFont        : -xos4-terminus-bold-*-normal-*-12-*-*-*-*-*-iso8859-*
 URxvt*saveLines       : 12000
 URxvt*scrollBar       : false
 URxvt*scrollstyle     : rxvt

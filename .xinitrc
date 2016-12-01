@@ -1,13 +1,14 @@
 #!/bin/sh
 
+setxkbmap -print mydvp | xkbcomp -I$HOME/.xkb/ - $DISPLAY
 # set keymap to 'programmer's dvorak'
-setxkbmap us dvp
+# setxkbmap us dvp
 
 # enable ctrl-alt-backspace
-setxkbmap -option terminate:ctrl_alt_bksp
+# setxkbmap -option terminate:ctrl_alt_bksp
 
 # custom keymap changes
-xmodmap ~/.xmodmaprc
+# xmodmap ~/.xmodmaprc
 
 # set standard cursor
 xsetroot -cursor_name left_ptr
@@ -24,15 +25,13 @@ xset fp rehash
 xset r rate 250
 
 # hide cursor
-unclutter &
+unclutter -reset &
 
 # enable numlock
 numlockx
 
-# launch a session dbus instance
-if [ -z "$DBUS_SESSION_BUS_ADDRESS" ] && type dbus-launch >/dev/null; then
-  eval $(dbus-launch --sh-syntax --exit-with-session)
-fi
+systemctl --user start spotblock &
+systemctl --user start status &
 
 # exec xmonad
 while true; do
