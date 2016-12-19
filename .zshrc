@@ -69,6 +69,8 @@ export XDG_VIDEOS_DIR="$HOME/videos"
 
 export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
 
+export MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+
 # set path
 path+=~/go/bin
 path+=~/bin

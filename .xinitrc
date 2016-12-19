@@ -33,6 +33,9 @@ numlockx
 systemctl --user start spotblock &
 systemctl --user start status &
 
+i3
+exit
+
 # exec xmonad
 while true; do
     dwm
