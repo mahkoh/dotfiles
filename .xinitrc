@@ -30,6 +30,8 @@ unclutter -reset &
 # enable numlock
 numlockx
 
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
 systemctl --user start spotblock &
 systemctl --user start status &
 

@@ -91,6 +91,9 @@ set smartindent
 " wrap lines
 set wrap 
 
+" enable mouse
+set mouse=nv
+
 " command line history
 set history=700
 
