@@ -67,7 +67,7 @@ hi texStructDelimiter           ctermfg=14    ctermbg=None  cterm=None
 hi texThmDelimiter              ctermfg=4     ctermbg=None  cterm=None
 hi texMathSubSupScript          ctermfg=172   ctermbg=None  cterm=Bold
 
-hi rustUnsafe                   ctermfg=33    ctermbg=None  cterm=Bold
+hi rustUnsafeKeyword            ctermfg=33    ctermbg=None  cterm=Bold
 hi rustSafe                     ctermfg=240   ctermbg=None  cterm=Bold
 hi rustQuestionmark             ctermfg=166   ctermbg=None  cterm=Bold
 hi rustMacro                    ctermfg=143   ctermbg=None  cterm=Bold

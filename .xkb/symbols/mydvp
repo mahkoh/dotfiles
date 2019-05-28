@@ -1,12 +1,18 @@
-xkb_symbols {
+xkb_symbols "mydvp" {
+    name[Group1] = "mydvp";
+
     key.type[1] = "ONE_LEVEL";
     key <RALT> { [ Shift_L          ] };
     key <LFSH> { [ ISO_Level3_Shift ] };
     key <CAPS> { [ VoidSymbol       ] };
     key <ESC>  { [ Caps_Lock        ] };
+    key <LCTL> { [ Shift_R          ] };
+    key <MENU> { [ space          ] };
+    key <RTSH> { [ underscore       ] };
+    key <SPCE> { [ Shift_L            ] };
 
     modifier_map Control { <CAPS> };
-    modifier_map Shift   { <RALT> };
+    modifier_map Shift   { <RALT>, <LCTL>, <SPCE> };
 
     key.type[1] = "FOUR_LEVEL";
     key <PAUS> { [ End              ] };

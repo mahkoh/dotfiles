@@ -1,4 +1,4 @@
-" enable viM
+" enable vim
 set nocompatible
 
 " normal X11 clipboard
@@ -106,10 +106,13 @@ set tabpagemax=1000
 set spelllang=de,en
 
 " use go plugin
-set rtp+=$GOROOT/misc/vim
+"set rtp+=$GOROOT/misc/vim
 
 " disable folding
 set nofoldenable
+
+" G stays in the same column
+set nostartofline
 
 " call pathogen#infect()
 syntax enable
@@ -187,22 +190,22 @@ inoremap <c-k> <esc>:m-2<CR>==gi
 vnoremap <c-j> :m'>+<CR>gv=gv
 vnoremap <c-k> :m-2<CR>gv=gv
 
-let g:ycm_server_log_level = 'debug'
+" let g:ycm_server_log_level = 'debug'
 
 " vundle
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+" set rtp+=~/.vim/bundle/vundle
+" call vundle#rc()
 
-Bundle 'gmarik/vundle'
+" Bundle 'gmarik/vundle'
 " Bundle 'Valloric/YouCompleteMe'
 " Bundle 'scrooloose/syntastic'
-Bundle 'MarcWeber/vim-addon-local-vimrc'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'kchmck/vim-indent-guides'
+" Bundle 'MarcWeber/vim-addon-local-vimrc'
+" Bundle 'kchmck/vim-coffee-script'
+" Bundle 'kchmck/vim-indent-guides'
 
-let g:syntastic_full_redraws = 0
-let g:ycm_enable_diagnostic_highlighting = 0
-let g:syntastic_python_python_exec = 'python2'
+" let g:syntastic_full_redraws = 0
+" let g:ycm_enable_diagnostic_highlighting = 0
+" let g:syntastic_python_python_exec = 'python2'
 " let g:indent_guides_guide_size = 1
 " let g:indent_guides_start_level = 2
 " let g:indent_guides_auto_colors = 0

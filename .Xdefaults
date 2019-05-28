@@ -49,12 +49,12 @@ URxvt.color15    : #ECEDEB
 !xft is slow as fuck
 !URxvt*font            : -misc-termsyn-medium-*-normal-*-14-*-*-*-*-*-iso8859-*
 !URxvt*boldFont        : -misc-termsyn-bold-*-normal-*-14-*-*-*-*-*-iso8859-*
-URxvt*font            : -xos4-terminus-medium-*-normal-*-12-*-*-*-*-*-iso8859-*
-URxvt*boldFont        : -xos4-terminus-bold-*-normal-*-12-*-*-*-*-*-iso8859-*
+URxvt*font            : -xos4-terminus-medium-*-normal-*-14-*-*-*-*-*-iso10646-*
+URxvt*boldFont        : -xos4-terminus-bold-*-normal-*-14-*-*-*-*-*-iso10646-*
 URxvt*saveLines       : 12000
 URxvt*scrollBar       : false
 URxvt*scrollstyle     : rxvt
 URxvt*cursorColor     : grey
-URxvt.perl-ext-common : default,matcher
+URxvt.perl-ext-common : default,matcher,confirm-paste
 URxvt.url-launcher    : /usr/bin/chromium
 URxvt.matcher.button  : 1

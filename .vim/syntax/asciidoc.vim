@@ -32,7 +32,6 @@ syn keyword asciidocToDo TODO FIXME CHECK TEST XXX ZZZ DEPRECATED
 syn match asciidocBackslash /\\/
 syn region asciidocIdMarker start=/^\$Id:\s/ end=/\s\$$/
 syn match asciidocCallout /\\\@<!<\d\{1,2}>/
-syn match asciidocOpenBlockDelimiter /^--$/
 syn match asciidocLineBreak /[ \t]+$/ containedin=asciidocList
 syn match asciidocRuler /^'\{3,}$/
 syn match asciidocPagebreak /^<\{3,}$/
@@ -79,6 +78,7 @@ syn match asciidocAttributeList /^\[[^[ \t].*\]$/
 syn match asciidocQuoteBlockDelimiter /^_\{4,}$/
 syn match asciidocExampleBlockDelimiter /^=\{4,}$/
 syn match asciidocSidebarDelimiter /^*\{4,}$/
+syn match asciidocOpenBlockDelimiter /^\(--\|\~{4,}\)$/
 
 " See http://vimdoc.sourceforge.net/htmldoc/usr_44.html for excluding region
 " contents from highlighting.

@@ -5,6 +5,7 @@ SAVEHIST=10000
 setopt inc_append_history
 setopt share_history
 setopt hist_ignore_dups
+setopt interactivecomments
 
 fpath=(~/.zsh/completion $fpath)
 # advanced autocomplete
@@ -15,6 +16,8 @@ autoload -Uz compinit promptinit colors
 compinit
 promptinit
 colors
+
+set -o vi
 
 # autocomplete menu
 zstyle ':completion:*' menu select
@@ -40,8 +43,21 @@ alias vim='vim -p'
 alias cal='cal -m'
 alias nano='echo "kill yourself"'
 alias mpv='mpv --volume-max=100'
+alias ..='cd ..'
 
 export PROMPT="%{$fg[green]%}%B%~$%b%{$reset_color%} "
+
+NETNS="$(ip netns identify)"
+
+if [[ "$NETNS" != "" ]]; then
+    export PROMPT="%{$fg[blue]%}[$NETNS] $PROMPT"
+fi
+
+HOSTNAME="$(cat /etc/hostname)"
+
+if [[ "$HOSTNAME" != "lappy" ]]; then
+    export PROMPT="%{$fg[yellow]%}[$HOSTNAME] $PROMPT"
+fi
 
 # vi sucks. use vim
 export SUDO_EDITOR="/usr/bin/vim -p -X"
@@ -49,7 +65,10 @@ export VISUAL=vim
 export EDITOR=vim
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nonu nomod hlsearch' -\""
 
-export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
+if [[ -n "$LD_LIBRARY_PATH" ]]; then
+    LD_LIBRARY_PATH=":$LD_LIBRARY_PATH"
+fi
+export LD_LIBRARY_PATH="/usr/local/lib$LD_LIBRAY_PATH"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 export KEYTIMEOUT=1
@@ -58,6 +77,7 @@ export NO_AT_BRIDGE=1
 
 export GOPATH=/home/julian/go
 export LRS_OBJ_PATH=/home/julian/lrs/lib/obj
+export NPM_PACKAGES=/home/julian/.local
 
 export ESCDELAY=25
 
@@ -73,8 +93,10 @@ export MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
 
 # set path
 path+=~/go/bin
-path+=~/bin
-path+=~/.cabal/bin
+path=(~/bin $path)
+path+=/sbin
+path+=/usr/sbin
+path+=~/.local/bin
 
 function mkcd() {
     mkdir -p $1 && cd $1
@@ -82,6 +104,10 @@ function mkcd() {
 
 function mkmvcd() {
     mkdir -p $1 && mv $2 $1 && cd $1
+}
+
+function mktcd() {
+    cd "$(mktemp -d -p ~/dragons tmp.XXX-$('date' +"%Y-%m-%d"))"
 }
 
 function mkmv() {
@@ -112,7 +138,6 @@ if [ "$TERM" = "linux" ]; then
     for i in $(sed -n "$_SEDCMD" $HOME/.Xdefaults | awk '$1 < 16 {printf "\\e]P%X%s", $1, $2}'); do
         echo -en "$i"
     done
-    clear
 fi
 
 setopt autocontinue
